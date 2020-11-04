@@ -3,7 +3,7 @@ language: java
 
 #we add the java development kit (jdk)
 jdk:
-- openjdk11
+- openjdk8
 services:
 #Linking Travis CI and Docker
 - docker
@@ -17,7 +17,7 @@ addons:
 before_install:
 - mvn clean
 - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
-- docker pull openjdk:11-jdk-alpine
+- docker pull openjdk:8-jdk-alpine
 
 script:
 #We avoid this error :" the job exceeded the maximum log length and has been terminated "
