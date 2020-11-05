@@ -21,13 +21,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- property useful for spotify's dockerfile-maven-plugin -->
-		<!-- Instead of "srikanth", please add your Docker Hub username -->
+		<!-- Instead of "amasrikanth", please add your Docker Hub username -->
 		<docker.image.prefix>amasrikanth</docker.image.prefix>
 		<!--Not adding artifacts to remote repository -->
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<!-- GitHub OAuth token & server -->
 		<github.global.server>github</github.global.server>
-		<github.global.oauth2Token>${env.GITHUB_OAUTH_TOKEN}</github.global.oauth2Token>
+		<github.global.oauth2Token>${env.AUTH_TOKEN}</github.global.oauth2Token>
 		<!-- Useful for Heroku Deployment -->
 		<full-artifact-name>target/${project.artifactId}-${project.version}.jar</full-artifact-name>
 
@@ -93,7 +93,7 @@
 
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<!-- <executions>
+				<executions>
 					<execution>
 						<id>unpack</id>
 						<phase>package</phase>
@@ -110,7 +110,7 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-				</executions> -->
+				</executions>
 			</plugin>
 
 			<!-- jacoco-maven-plugin useful for Codecov -->
