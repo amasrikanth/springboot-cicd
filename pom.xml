@@ -12,6 +12,7 @@
 	<groupId>com.geekport</groupId>
 	<artifactId>springboot-cicd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>springboot-cicd</name>
 	<description>Implementing CI/CD for Spring Boot Java App</description>
 
@@ -81,7 +82,6 @@
 				</executions>
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
-
 					<serverId>index.docker.io</serverId>
 					<registryUrl>https://index.docker.io:443/v1/</registryUrl>
 				</configuration>
