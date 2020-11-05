@@ -10,6 +10,10 @@ services:
 #Linking Travis CI and Docker
 - docker
 
+script:
+- mvn -N io.takari:maven:wrapper
+- ./mvnw clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
 after_success:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - export TAG=latest
