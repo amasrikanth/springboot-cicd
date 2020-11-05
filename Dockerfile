@@ -13,7 +13,7 @@ ARG JAR_FILE
 # Add the application's jar to the container
 ADD ${JAR_FILE} app.jar
 
-RUN sh -c 'touch/app.jar'
+RUN sh -c 'touch /app.jar'
 
 ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 
