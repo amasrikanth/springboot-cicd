@@ -20,7 +20,7 @@
 		<java.version>1.8</java.version>
 		<!-- solving error : Invalid or corrupt jarfile /app.jar -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- property useful for spotify's dockerfile-maven-plugin -->
 		<!-- Instead of "amasrikanth", please add your Docker Hub username -->
 		<docker.image.prefix>amasrikanth</docker.image.prefix>
@@ -80,31 +80,11 @@
 						</goals>
 					</execution>
 				</executions>
-				<!-- <configuration>
+				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
 					<serverId>index.docker.io</serverId>
 					<registryUrl>https://index.docker.io:443/v1/</registryUrl>
-				</configuration> -->
-				<configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <!-- optionally overwrite tags every time image is built with docker:build -->
-                    <forceTags>true</forceTags>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <buildArgs>
-                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
+				</configuration>
 			</plugin>
 
 			<!-- maven-dependency-plugin useful for creating docker image -->
